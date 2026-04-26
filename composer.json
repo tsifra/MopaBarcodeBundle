@@ -30,8 +30,8 @@
     },
     "suggest":  {
         "avalanche123/imagine-bundle": "dev-master",
-        "laminas/laminas-barcode": "~2.3.7",
-        "laminas/laminas-validator": "~2.3.7",
-        "laminas/laminas-servicemanager": "~2.3.7"
+        "laminas/laminas-barcode": "*",
+        "laminas/laminas-validator": "*",
+        "laminas/laminas-servicemanager": "*"
     }
 }
