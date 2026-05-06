@@ -11,12 +11,14 @@
 namespace Mopa\Bundle\BarcodeBundle\Twig\Extension;
 
 use Mopa\Bundle\BarcodeBundle\Model\BarcodeService;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class BarcodeRenderExtension
  * @package Mopa\Bundle\BarcodeBundle\Twig\Extension
  */
-class BarcodeRenderExtension extends \Twig_Extension
+class BarcodeRenderExtension extends AbstractExtension
 {
 
     protected $bs;
@@ -44,8 +46,8 @@ class BarcodeRenderExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('mopa_barcode_url', array($this, 'url')),
-            new \Twig_SimpleFunction('mopa_barcode_path', array($this, 'path')),
+            new TwigFunction('mopa_barcode_url', array($this, 'url')),
+            new TwigFunction('mopa_barcode_path', array($this, 'path')),
         );
     }
 
