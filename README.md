@@ -1,6 +1,6 @@
 # README
 
-changes to use with symfony 3.4
+adopted to symfony7
 
 ## Introduction
 
