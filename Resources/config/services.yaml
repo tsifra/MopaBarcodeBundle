@@ -1,0 +1,26 @@
+parameters:
+    mopa_barcode.barcode_service.class: 'Mopa\Bundle\BarcodeBundle\Model\BarcodeService'
+    mopa_barcode.render.twig.extension.class: 'Mopa\Bundle\BarcodeBundle\Twig\Extension\BarcodeRenderExtension'
+    mopa_barcode.overlay_images_path: ~
+
+services:
+    mopa_barcode.barcode_service:
+        class: '%mopa_barcode.barcode_service.class%'
+        arguments:
+            - '@imagine'
+            - '%kernel.cache_dir%'
+            - '%kernel.project_dir%'
+            - 'cache/barcodes/'
+            - '%imagine.web_root%'
+            - '@logger'
+        tags:
+            - { name: monolog.logger, channel: mopa_barcode }
+        calls:
+            - [setOverlayPath, ['%mopa_barcode.overlay_images_path%']]
+
+    mopa_barcode.render.twig.extension:
+        class: '%mopa_barcode.render.twig.extension.class%'
+        arguments:
+            - '@mopa_barcode.barcode_service'
+        tags:
+            - { name: twig.extension }
